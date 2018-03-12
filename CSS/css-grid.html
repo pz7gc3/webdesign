@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS grid</title>
+  <link rel="stylesheet" href="grid-styles.css">
+  <style>
+body { 
+  margin: 1em; 
+  margin-bottom: 2em;
+}
+
+h4 { margin-top: 2em; }
+#pg1 {
+  background: #f2f2f2;
+  display: grid;
+
+  /* grid-template-columns: 200px 200px 200px; */
+  grid-template-columns: 1fr 2fr 1fr;
+} 
+
+#pg2 {
+  background: #e7baba;
+  display: grid;
+
+  /* grid-template-columns: 200px 200px 200px; */
+  /* grid-template-columns: 1fr 2fr 1fr; */
+  /* grid-template-columns: 200px 1fr 2fr; */
+  grid-template-columns: 150px repeat(3, 1fr);
+}
+
+#pg3 {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-auto-rows: minmax(60px, auto);
+}
+
+#pg4 {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+}
+#pg4 > :nth-child(1) {
+  grid-column-start: 1; 
+  grid-column-end: 3; 
+}
+#pg4 > :nth-child(2) {
+  grid-column-start: 1; 
+  grid-column-end: 4; 
+  grid-row-start: 2; 
+  grid-row-end: 2; 
+}
+#pg4 > :nth-child(6) {
+  grid-column-start: 2; 
+  grid-column-end: 4; 
+  grid-row-start: 3; 
+  grid-row-end:5; 
+}
+  </style>
+</head>
+<body>
+  <h2>CSS grid</h2>
+  <p>
+    See <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout">Basic CSS grid layouts</a>
+  </p>
+
+  <h4>Getting started</h4>
+  <div id="pg1" class="container">
+
+    <div class="item">
+        One (1) Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis in aperiam inventore eum hic. Nesciunt iure repellat saepe quis nobis. Adipisci nobis facere cumque aliquam. Aliquid ratione asperiores culpa perspiciatis.
+    </div>
+    <div class="item">
+        Two (2) Välkommen sit amet consectetur adipisicing elit. Et consequatur rem, voluptas quasi, aliquam soluta pariatur, nostrum provident labore nobis modi perferendis tempore mollitia! Animi nobis possimus corporis reprehenderit magni?
+    </div>
+    <div class="item">
+        Three (3) Achtung, consectetur adipisicing elit. Officiis in aperiam inventore eum hic. Nesciunt iure repellat saepe quis nobis. Adipisci nobis facere cumque aliquam. Aliquid ratione asperiores culpa perspiciatis.      
+    </div>
+    <div class="item">
+        Four (4) Holy crap
+    </div>
+    <div class="item">
+        Five (5) Hold Your horses!
+    </div>
+    <div class="item">
+        Six (6) Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit asperiores dicta itaque aliquid obcaecati ab, numquam, optio quas eaque vel illum blanditiis iusto soluta minus commodi quis quo rem expedita!
+    </div>
+    <div class="item">
+        Seven (7) Natus rerum incidunt consequuntur doloribus, eaque ex sint unde ullam deserunt consequatur, voluptatibus nulla in illum ea! Nobis minima fugit eius ducimus.
+    </div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item">
+      This is number (10) and the show has just begun
+    </div>
+  </div>
+
+  
+  <h4>Fixed column</h4>
+  <div id="pg2" class="container">
+
+    <div class="item">
+        One (1) Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis in aperiam inventore eum hic. Nesciunt iure repellat saepe quis nobis. Adipisci nobis facere cumque aliquam. Aliquid ratione asperiores culpa perspiciatis.
+    </div>
+    <div class="item">
+        Two (2) Välkommen sit amet consectetur adipisicing elit. Et consequatur rem, voluptas quasi, aliquam soluta pariatur, nostrum provident labore nobis modi perferendis tempore mollitia! Animi nobis possimus corporis reprehenderit magni?
+    </div>
+    <div class="item">
+        Three (3) Achtung, consectetur adipisicing elit. Officiis in aperiam inventore eum hic. Nesciunt iure repellat saepe quis nobis. Adipisci nobis facere cumque aliquam. Aliquid ratione asperiores culpa perspiciatis.      
+    </div>
+    <div class="item">
+        Four (4) Holy crap
+    </div>
+    <div class="item">
+        Five (5) Hold Your horses!
+    </div>
+    <div class="item">
+        Six (6) Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit asperiores dicta itaque aliquid obcaecati ab, numquam, optio quas eaque vel illum blanditiis iusto soluta minus commodi quis quo rem expedita!
+    </div>
+    <div class="item">
+        Seven (7) Natus rerum incidunt consequuntur doloribus, eaque ex sint unde ullam deserunt consequatur, voluptatibus nulla in illum ea! Nobis minima fugit eius ducimus.
+    </div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <!-- <div class="item"></div> -->
+  </div>
+
+  <h4>Autorow size</h4>
+  <div id="pg3" class="container">
+
+    <div class="item">
+        One (1) Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis in aperiam inventore eum hic. Nesciunt iure repellat saepe quis nobis. Adipisci nobis facere cumque aliquam. Aliquid ratione asperiores culpa perspiciatis.
+    </div>
+    <div class="item">
+        Two (2) Välkommen sit amet consectetur adipisicing elit. Et consequatur rem, voluptas quasi, aliquam soluta pariatur, nostrum provident labore nobis modi perferendis tempore mollitia! Animi nobis possimus corporis reprehenderit magni?
+    </div>
+    <div class="item">
+        Three (3) Achtung, consectetur adipisicing elit. Officiis in aperiam inventore eum hic. Nesciunt iure repellat saepe quis nobis. Adipisci nobis facere cumque aliquam. Aliquid ratione asperiores culpa perspiciatis.      
+    </div>
+    <div class="item">
+      Four (4)
+    </div>
+    <div class="item">
+      Five (5)
+    </div>
+    <div class="item">
+      Six (6)
+    </div>
+    <div class="item">
+      Seven (7)
+    </div>
+    <div class="item">
+      (8)
+    </div>
+    <div class="item">
+      (9)
+    </div>
+    <div class="item">
+      (10)
+    </div>
+  </div>
+
+  <h4>Fixed column</h4>
+  <div id="pg4" class="container">
+
+    <div class="item">
+        One (1) Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis in aperiam inventore eum hic. Nesciunt iure repellat saepe quis nobis. Adipisci nobis facere cumque aliquam. Aliquid ratione asperiores culpa perspiciatis.
+    </div>
+    <div class="item">
+        Two (2) Välkommen sit amet consectetur adipisicing elit. Et consequatur rem, voluptas quasi, aliquam soluta pariatur, nostrum provident labore nobis modi perferendis tempore mollitia! Animi nobis possimus corporis reprehenderit magni?
+    </div>
+    <div class="item">
+        Three (3) Achtung, consectetur adipisicing elit. Officiis in aperiam inventore eum hic. Nesciunt iure repellat saepe quis nobis. Adipisci nobis facere cumque aliquam. Aliquid ratione asperiores culpa perspiciatis.      
+    </div>
+    <div class="item">
+        Four (4) Holy crap
+    </div>
+    <div class="item">
+        Five (5) Hold Your horses!
+    </div>
+    <div class="item">
+        Six (6) Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit asperiores dicta itaque aliquid obcaecati ab, numquam, optio quas eaque vel illum blanditiis iusto soluta minus commodi quis quo rem expedita!
+    </div>
+    <div class="item">
+        Seven (7) Natus rerum incidunt consequuntur doloribus, eaque ex sint unde ullam deserunt consequatur, voluptatibus nulla in illum ea! Nobis minima fugit eius ducimus.
+    </div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <!-- <div class="item"></div> -->
+  </div>
+
+</body>
+</html>
